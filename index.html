@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CANVAS</title>
+<style>
+#miCanvas{
+	border:dotted 3px red;
+	background:black;
+	
+}
+</style>
+<script>
+window.onload = function(){
+	var canvas = document.getElementById("miCanvas");
+	if(canvas && canvas.getContext){
+		var ctx = canvas.getContext("2d");
+
+		if(ctx){
+			var gradiente = ctx.createLinearGradient(0,0,0,canvas.height);
+			gradiente.addColorStop(0.2, "yellow");
+			gradiente.addColorStop(0.6, "blue");
+			gradiente.addColorStop(0.7, "red");
+			gradiente.addColorStop(1, "green");
+
+
+		}
+			
+			ctx.fillStyle = gradiente;
+			ctx.fillRect(0,0,canvas.width,canvas.height);
+			
+		} else {
+			alert("Error al crear tu contexto");	
+		}
+		if(ctx){
+			//Colores
+			ctx.lineWidth = 15;
+			ctx.strokeStyle = "#330000";
+			ctx.fillStyle = "black";
+			//Curva bezier
+			ctx.beginPath();
+			//Dibujamos la curva
+			ctx.bezierCurveTo(50,90, 70,290, 30,230);
+			//Dibujamos la curva
+			ctx.stroke();
+			
+		} else {
+			alert("Error al crear tu contexto");	
+		}
+
+
+		if(ctx){
+			//Colores
+			ctx.lineWidth = 15;
+			ctx.strokeStyle = "#330000";
+			ctx.fillStyle = "black";
+			ctx.moveTo(330,220);
+			//Curva bezier
+			ctx.beginPath();
+			//Dibujamos la curva
+			ctx.bezierCurveTo(210,180, 200,180, 270,180);
+			//Dibujamos la curva
+			ctx.stroke();
+		} else {
+			alert("Error al crear tu contexto");	
+		}
+
+		if(ctx){
+			//Descripcion de lineas
+			ctx.lineWidth = 20;
+			ctx.strokeStyle = "#330000";
+			ctx.fillStyle = "black";
+			//Dibujamos esquina
+			ctx.beginPath();
+			//ctx.lineJoin = "round";
+			ctx.lineJoin = "bevel";
+			//ctx.lineJoin = "mitter";
+			ctx.moveTo(200,200);
+			ctx.lineTo(231,100);
+			ctx.lineTo(270,200);
+			ctx.stroke();
+		} else {
+			alert("Error al crear tu contexto");	
+		}
+		if(ctx){
+			//Descripcion de lineas
+			ctx.lineWidth = 18;
+			ctx.strokeStyle = "#330000";
+			ctx.fillStyle = "black";
+			
+			ctx.beginPath();
+			ctx.arc(130,150,50, 0, 2*Math.PI,true);
+			ctx.stroke();
+			
+		} else {
+			alert("Error al crear tu contexto");	
+		}
+
+		if(ctx){
+			//Descripcion de lineas
+			ctx.lineWidth = 20;
+			ctx.strokeStyle = "#330000";
+			ctx.fillStyle = "red";
+			//Path
+			ctx.beginPath();
+			ctx.moveTo(300,202);
+			ctx.lineTo(300,100);
+			ctx.lineTo(380,200);
+			ctx.lineTo(380,100);
+			ctx.stroke();
+			
+		} else {
+			alert("Error al crear tu contexto");	
+		}
+		
+	
+//foto
+
+var canvas = document.getElementById("miCanvas");
+		if (canvas && canvas.getContext) {
+		var ctx = canvas.getContext("2d");
+			if (ctx) {
+					var img=new Image();
+					img.src = "imagenes/jhoan.jpg";
+					img.onload = function() {
+					ctx.drawImage(this, 400, 200);
+					}
+			 }
+		}
+
+}
+
+		
+</script>
+</head>
+<body>
+<h1>PRESENTACION</h1>
+<canvas id="miCanvas" width="600px" height="400px">
+Tu navegador no soporta CANVAS
+</canvas>
+<right>
+	<a href="juego2.html" title="JUGAR">PLAY</a>
+</right>
+</body>
+</html>
